@@ -12,9 +12,14 @@ setting_meta = mod.setting(
 
 mod.apps.emacs = "app.name: Emacs"
 mod.apps.emacs = "app.name: emacs"
+mod.apps.emacs = "app.name: /^GNU Emacs/"
 mod.apps.emacs = """
 os: mac
 app.bundle: org.gnu.Emacs
+"""
+mod.apps.emacs = """
+os: windows
+app.exe: emacs.exe
 """
 
 ctx = Context()
@@ -148,11 +153,11 @@ class UserActions:
         if left:
             actions.edit.extend_word_left()
             before = actions.edit.selected_text()
-            actions.user.emacs("pop-mark")
+            actions.user.emacs("pop-to-mark-command")
         if right:
             actions.edit.extend_line_end()
             after = actions.edit.selected_text()
-            actions.user.emacs("pop-mark")
+            actions.user.emacs("pop-to-mark-command")
         return (before, after)
 
 
