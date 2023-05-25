@@ -2,6 +2,7 @@ tag: terminal
 and tag: user.git
 -
 
-git add modified:
+# XXX - merge to knausj
+git add update:
     insert("git add -u")
     key(enter)
