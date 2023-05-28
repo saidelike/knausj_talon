@@ -254,6 +254,13 @@ class Actions:
                 return application
         raise RuntimeError(f'App not running: "{name}"')
 
+    def switch_last_focused():
+        """Focus the previously used application"""
+        if app.platform == "windows":
+            actions.key("alt-tab")
+        else:
+            print("last focused app not supported yet on " + app.platform)
+
     def switcher_focus(name: str):
         """Focus a new application by name"""
         app = actions.user.get_running_app(name)
