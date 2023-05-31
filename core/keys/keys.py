@@ -254,6 +254,16 @@ alternate_keys = {
     "page up": "pageup",
     "page down": "pagedown",
 }
+
+# taken from https://github.com/pokey/pokey_talon/blob/b1718056bd85da95f7778a7ef2340d205e320efb/core/keys/keys.py#L230
+advanced_keys = {
+    "clap": "enter",
+    "drill": "delete",
+    "scratch": "backspace",
+    "scrape": "escape",
+    "void": "space",
+}
+
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
     alternate_keys["menu key"] = "menu"
@@ -261,6 +271,8 @@ if app.platform in ("windows", "linux"):
 
 special_keys = {k: k for k in simple_keys}
 special_keys.update(alternate_keys)
+# XXX - comment below line by default in knausj as is advanced usage
+special_keys.update(advanced_keys)
 ctx.lists["self.special_key"] = special_keys
 ctx.lists["self.function_key"] = {
     f"F {name}": f"f{i}" for i, name in enumerate(f_digits, start=1)
