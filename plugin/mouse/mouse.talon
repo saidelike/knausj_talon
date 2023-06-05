@@ -50,15 +50,17 @@ mid click:
     mouse_click()
     # close the mouse grid
     user.grid_close()
-left drag | drag:
-    user.mouse_drag(0)
-    # close the mouse grid
-    user.grid_close()
-right drag | righty drag:
-    user.mouse_drag(1)
-    # close the mouse grid
-    user.grid_close()
-end drag | drag end: user.mouse_drag_end()
+# commenting as using Andreas' implementation and Andreas' implementation
+# of user.mouse_drag() has no arg
+# left drag | drag:
+#     user.mouse_drag(0)
+#     # close the mouse grid
+#     user.grid_close()
+# right drag | righty drag:
+#     user.mouse_drag(1)
+#     # close the mouse grid
+#     user.grid_close()
+# end drag | drag end: user.mouse_drag_end()
 wheel down: user.mouse_scroll_down()
 wheel down here:
     user.mouse_move_center_active_window()
