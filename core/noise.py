@@ -17,4 +17,5 @@ class Actions:
         """
 
 
-noise.register("pop", lambda _: actions.user.noise_trigger_pop())
+# we disable talon's default "pop", because we trigger the "pop" sound from parrot.py
+# noise.register("pop", lambda _: actions.user.noise_trigger_pop())
