@@ -11,3 +11,7 @@ git stage all merge: user.vscode("git.stageAllMerge")
 # Display
 # override vscode.talon one
 wrap (switch|toggle):       user.vscode("editor.action.toggleWordWrap")
+
+# https://github.com/AndreasArvidsson/andreas-talon/blob/4688480bf8ecc36e57cf7f1410c86467245ac115/apps/vscode/vscode.talon#L252
+snip last:                  user.vscode("jumpToPrevSnippetPlaceholder")
+[snip] next:                user.vscode("jumpToNextSnippetPlaceholder")
