@@ -242,7 +242,8 @@ simple_keys = [
     "insert",
     "pagedown",
     "pageup",
-    "space",
+    # Disable for now as "space" has some false positive with hiss noise
+    #    "space",
     "tab",
 ]
 
