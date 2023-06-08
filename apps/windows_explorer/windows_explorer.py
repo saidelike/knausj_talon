@@ -106,22 +106,6 @@ class UserActions:
             path = ""
 
         return path
-        # The implementation below kind of "work" but is not ideal as it changes the focus
-        # to the path area each time we browse a folder, even if we don't
-        # use the file manager
-        # https://www.tenforums.com/tutorials/131557-copy-path-file-explorer-windows-10-a.html
-        # path = ""
-        # actions.key("ctrl-l")
-        # actions.sleep("100ms")
-        # path = actions.edit.selected_text()
-        # # attempt to change focus but does not seem to work
-        # actions.sleep("100ms")
-        # actions.key("tab")
-        # actions.sleep("100ms")
-        # actions.key("tab")
-        # actions.sleep("100ms")
-        # print(path)
-        return path
 
     def file_manager_terminal_here():
         actions.key("ctrl-l")
