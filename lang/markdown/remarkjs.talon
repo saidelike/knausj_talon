@@ -14,10 +14,6 @@ comment:
     "???"
     key(enter:2)
 
-image link:
-    "![](img/)"
-    key(left:1)
-
 font size fourteen:
     edit.line_start()
     ".font-size-14[]"
