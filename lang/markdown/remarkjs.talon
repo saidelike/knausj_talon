@@ -34,20 +34,6 @@ center:
     edit.line_end()
     "]"
 
-left column:
-    edit.line_start()
-    ".left-column[]"
-    key(left)
-    key(enter:1)
-    edit.line_start()
-
-right column:
-    edit.line_start()
-    ".right-column[]"
-    key(left)
-    key(enter:1)
-    edit.line_start()
-
 # we override the ones from markdown.talon because we changed the tab width
 list [one]:
     edit.line_start()
