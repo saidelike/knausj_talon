@@ -243,7 +243,8 @@ simple_keys = [
     "pagedown",
     "pageup",
     # Disable for now as "space" has some false positive with hiss noise
-    #    "space",
+    # update: we can re enable it now that we have less false positive, because we included throttling in the speech noise in pattern.json
+    "space",
     "tab",
 ]
 
