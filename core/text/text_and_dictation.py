@@ -26,6 +26,8 @@ ctx.lists["user.prose_modifiers"] = {
 ctx.lists["user.prose_snippets"] = {
     "spacebar": " ",
     "new line": "\n",
+    # so we can say "slap" in dictation mode instead of "new line"
+    "slap": "\n",
     "new paragraph": "\n\n",
     # Curly quotes are used to obtain proper spacing for left and right quotes, but will later be straightened.
     "open quote": "“",
