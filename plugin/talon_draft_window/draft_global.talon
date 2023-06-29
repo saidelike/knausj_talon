@@ -26,13 +26,15 @@ mode: command
 
 ^draft empty: user.draft_show("")
 
-^draft edit:
-    text = edit.selected_text()
-    key(backspace)
-    user.draft_show(text)
+# Old way to use the draft editor so commenting to avoid misrecognition
+# with "draft submit" and then potentially losing my draft
+# ^draft edit:
+#     text = edit.selected_text()
+#     key(backspace)
+#     user.draft_show(text)
 
-^draft edit all:
-    edit.select_all()
-    text = edit.selected_text()
-    key(backspace)
-    user.draft_show(text)
+# ^draft edit all:
+#     edit.select_all()
+#     text = edit.selected_text()
+#     key(backspace)
+#     user.draft_show(text)
