@@ -1,8 +1,28 @@
 
+focus <user.running_applications>: 
+    user.switcher_focus(running_applications)
+    sleep(200ms)
+    user.parse_phrase(phrase or "")
+
 # special cases to make it faster to focus certain apps
-# XXX - could actually support pasting a phrase in the focused app like in https://github.com/pokey/pokey_talon/blob/45d1071f217417177ef73cba07f2f5653b6f994f/core/windows_and_tabs/window_management.talon#L27
-coder: user.switcher_focus("code")
-foxer: user.switcher_focus("firefox")
-chromer: user.switcher_focus("chrome")
-termer: user.switcher_focus("windows terminal")
-explorer: user.switcher_focus("windows explorer")
+# XXX - not all of them have been tested below to chain commands after focus so mileage may vary
+coder: 
+    user.switcher_focus("code")
+    sleep(300ms)
+    user.parse_phrase(phrase or "")
+foxer: 
+    user.switcher_focus("firefox")
+    sleep(200ms)
+    user.parse_phrase(phrase or "")
+chromer: 
+    user.switcher_focus("chrome")
+    sleep(200ms)
+    user.parse_phrase(phrase or "")
+termer: 
+    user.switcher_focus("windows terminal")
+    sleep(500ms)
+    user.parse_phrase(phrase or "")
+explorer: 
+    user.switcher_focus("windows explorer")
+    sleep(200ms)
+    user.parse_phrase(phrase or "")
