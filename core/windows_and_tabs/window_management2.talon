@@ -18,6 +18,10 @@ chromer:
     user.switcher_focus("chrome")
     sleep(200ms)
     user.parse_phrase(phrase or "")
+edger: 
+    user.switcher_focus("microsoft edge")
+    sleep(200ms)
+    user.parse_phrase(phrase or "")
 termer: 
     user.switcher_focus("windows terminal")
     sleep(500ms)
