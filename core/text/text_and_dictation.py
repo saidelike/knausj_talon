@@ -82,8 +82,11 @@ def text(m) -> str:
     return format_phrase(m)
 
 
+# <user.prose_number> -> <user.number_string> 
+# so numbers are written with digits instead of letters when using NOOP formatters like `say` and `speak` too (same as in command mode)
+# so in command mode, saying "say I am ten" outputs "I am 10" instead of "I am ten"
 @mod.capture(
-    rule="({user.vocabulary} | {user.punctuation} | {user.prose_snippets} | <phrase> | <user.prose_number> | <user.prose_modifier>)+"
+    rule="({user.vocabulary} | {user.punctuation} | {user.prose_snippets} | <phrase> | <user.number_string> | <user.prose_modifier>)+"
 )
 def prose(m) -> str:
     """Mixed words and punctuation, auto-spaced & capitalized."""
@@ -91,8 +94,11 @@ def prose(m) -> str:
     return apply_formatting(m).replace("“", '"').replace("”", '"')
 
 
+# <user.prose_number> -> <user.number_string> 
+# so numbers are written with digits instead of letters in dictation mode too (same as in command mode)
+# so in dictation mode, saying "I am ten" outputs "I am 10" instead of "I am ten"
 @mod.capture(
-    rule="({user.vocabulary} | {user.punctuation} | {user.prose_snippets} | <phrase> | <user.prose_number>)+"
+    rule="({user.vocabulary} | {user.punctuation} | {user.prose_snippets} | <phrase> | <user.number_string>)+"
 )
 def raw_prose(m) -> str:
     """Mixed words and punctuation, auto-spaced & capitalized, without quote straightening and commands (for use in dictation mode)."""
