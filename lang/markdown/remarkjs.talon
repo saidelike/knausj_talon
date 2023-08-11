@@ -14,19 +14,12 @@ comment:
     "???"
     key(enter:2)
 
-font size fourteen:
-    edit.line_start()
-    ".font-size-14[]"
-    key(left)
-    key(enter:1)
-    edit.line_start()
+# generate blocks like .font-size-14[] or .font-size-16[]
+font size <number_small>:
+    user.cursorless_insert_snippet(".font-size-{number_small}[\n$content\n]")
 
-font size sixteen:
-    edit.line_start()
-    ".font-size-16[]"
-    key(left)
-    key(enter:1)
-    edit.line_start()
+font size <number_small> wrap <user.cursorless_target>:
+    user.cursorless_wrap_with_snippet(".font-size-{number_small}[\n$content\n]", cursorless_target, "content")
 
 center:
     edit.line_start()
