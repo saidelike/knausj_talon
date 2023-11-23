@@ -109,6 +109,10 @@ def close_editor(submit_draft: bool):
     remove_tag("user.draft_editor_active")
     actions.edit.select_all()
     selected_text = actions.edit.selected_text()
+
+    # saves a copy in the clipboard in case it fails, so we don't lose it
+    actions.edit.copy()
+
     actions.edit.delete()
     actions.app.tab_close()
     actions.user.switcher_focus_window(original_window)
