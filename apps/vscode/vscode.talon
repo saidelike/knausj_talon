@@ -250,7 +250,8 @@ select (more | this): user.vscode("editor.action.smartSelect.expand")
 
 minimap: user.vscode("editor.action.toggleMinimap")
 maximize: user.vscode("workbench.action.minimizeOtherEditors")
-restore: user.vscode("workbench.action.evenEditorWidths")
+# disable because I don't use it and it's false positive
+#restore: user.vscode("workbench.action.evenEditorWidths")
 
 #breadcrumb
 select breadcrumb: user.vscode("breadcrumbs.focusAndSelect")

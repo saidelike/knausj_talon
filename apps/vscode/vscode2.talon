@@ -12,9 +12,20 @@ git stage all merge: user.vscode("git.stageAllMerge")
 # override vscode.talon one
 wrap (switch|toggle):       user.vscode("editor.action.toggleWordWrap")
 
-# https://github.com/AndreasArvidsson/andreas-talon/blob/4688480bf8ecc36e57cf7f1410c86467245ac115/apps/vscode/vscode.talon#L252
+# https://github.com/AndreasArvidsson/andreas-talon/blob/4688480bf8ecc36e57cf7f1410c86467245ac115/apps/vscode/vscode.talon#"L252"
 snip last:                  user.vscode("jumpToPrevSnippetPlaceholder")
 [snip] next:                user.vscode("jumpToNextSnippetPlaceholder")
 
 # enable/disable hats in Cursorless
 confetti: user.vscode('cursorless.toggleDecorations')
+
+# comment this because it conflicts with the default "debug start" command
+# https://www.cursorless.org/docs/contributing/#running--testing-extension-locally
+# debug [<user.text>]:
+#     user.vscode("workbench.action.debug.selectandstart")
+#     insert(user.text or "")
+
+# Sidebar
+# https://github.com/pokey/pokey_talon/blob/facefd54a4e14c355b07dde71b1ac2a600785dcd/apps/vscode/vscode.talon#L41C12-L41C12
+search next: user.vscode("search.action.focusNextSearchResult")
+search last: user.vscode("search.action.focusPreviousSearchResult")
