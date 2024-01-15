@@ -1,4 +1,4 @@
-from talon import Context, Module, actions, imgui, scope, ui
+from talon import Context, Module, actions, app, imgui, scope, ui
 
 ctx = Context()
 mod = Module()
@@ -11,7 +11,10 @@ setting_max_length = mod.setting(
 )
 
 
-@imgui.open(x=ui.main_screen().x)
+# This means that it will always open in the top left corner of the main screen
+# @imgui.open(x=ui.main_screen().x)
+# this prints it in the top left corner of my right screen
+@imgui.open(x=ui.screen.screens()[2].x, y=ui.screen.screens()[2].y)
 def gui(gui: imgui.GUI):
     gui.text("Scope")
     gui.line()
@@ -67,3 +70,10 @@ class Actions:
         else:
             ctx.tags = ["user.help_scope_open"]
             gui.show()
+
+
+def on_ready():
+    actions.user.help_scope_toggle()
+
+
+app.register("ready", on_ready)
