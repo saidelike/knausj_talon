@@ -13,14 +13,15 @@ and app.name: mintty.exe
 
 ctx = Context()
 ctx.matches = r"""
-app: mintty
+os: windows
+and app.exe: mintty.exe
 """
 ctx.tags = [
     "terminal",
     "user.generic_unix_shell",
     "user.file_manager",
     "user.git",
-    "user.kubectl",
+    "user.tabs",
 ]
 
 directories_to_remap = {}
