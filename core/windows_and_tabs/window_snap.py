@@ -8,9 +8,10 @@ Originally from dweil/talon_community - modified for newapi by jcaw.
 #   platforms
 
 import logging
+import time
 from typing import Optional
 
-from talon import Context, Module, actions, ui
+from talon import Context, Module, actions, app, ui
 
 mod = Module()
 mod.list(
@@ -318,3 +319,21 @@ class Actions:
             window,
             screen_number=screen_number,
         )
+
+
+# instead we can `tail -f talon.log` once in a terminal
+# def on_ready():
+#     actions.menu.open_log()
+
+#     ## ATTEMPT 1: it works but not ideal as need focused app
+#     time.sleep(2)
+#     actions.user.move_window_to_screen(1)
+#     time.sleep(2)
+#     actions.user.snap_window(RelativeScreenPos(0, 0, 1, 1))
+
+#     # ATTEMPT 2: it does not work after a talon restart, only works after a file save
+#     # actions.user.move_app_to_screen("talon", 3)
+#     # actions.user.snap_app("talon", RelativeScreenPos(0, 0, 1, 1))
+
+
+# app.register("ready", on_ready)
