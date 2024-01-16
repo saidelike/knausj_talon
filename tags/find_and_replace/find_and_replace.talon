@@ -1,93 +1,41 @@
 tag: user.find_and_replace
 -
-hunt this: user.find("")
-hunt this (pace | paste):
-    user.find("")
-    sleep(25ms)
-    edit.paste()
-hunt this <user.text>: user.find(text)
-hunt all: user.find_everywhere("")
-hunt all (pace | paste):
-    user.find_everywhere("")
-    sleep(25ms)
-    edit.paste()
-hunt all <user.text>: user.find_everywhere(text)
-hunt case: user.find_toggle_match_by_case()
-hunt word: user.find_toggle_match_by_word()
-hunt expression: user.find_toggle_match_by_regex()
-hunt next: user.find_next()
-hunt previous: user.find_previous()
-replace this [<user.text>]: user.replace(text or "")
-replace all: user.replace_everywhere("")
-replace <user.text> all: user.replace_everywhere(text)
-replace confirm that: user.replace_confirm()
-replace confirm all: user.replace_confirm_all()
 
-#quick replace commands, modeled after jetbrains
-clear last <user.text> [over]:
-    user.select_previous_occurrence(text)
+scout for clip:             edit.find(clip.text())
+scout [<user.text>]$:       edit.find(text or "")
+scout last:                 edit.find_previous()
+scout next:                 edit.find_next()
+
+scout eve for clip:         user.find_everywhere(clip.text())
+scout eve [<user.text>]$:   user.find_everywhere(text or "")
+scout eve last:             user.find_everywhere_previous()
+scout eve next:             user.find_everywhere_next()
+
+replace for clip:           user.find_replace(clip.text())
+replace [<user.text>]$:     user.find_replace(text or "")
+replace eve for clip:       user.replace_everywhere(clip.text())
+replace eve [<user.text>]$: user.replace_everywhere(text or "")
+
+scout case:         user.find_toggle_match_by_case()
+scout word:         user.find_toggle_match_by_word()
+scout expression:   user.find_toggle_match_by_regex()
+replace case:       user.find_replace_toggle_preserve_case()
+
+reference last:             user.find_reference_previous()
+reference next:             user.find_reference_next()
+
+(define|follow) last:       user.find_definition_previous()
+(define|follow) next:       user.find_definition_next()
+
+scout hide:
+    edit.find("")
     sleep(100ms)
-    edit.delete()
-clear next <user.text> [over]:
-    user.select_next_occurrence(text)
-    sleep(100ms)
-    edit.delete()
-clear last clip:
-    user.select_previous_occurrence(clip.text())
-    edit.delete()
-clear next clip:
-    user.select_next_occurrence(clip.text())
-    sleep(100ms)
-    edit.delete()
-comment last <user.text> [over]:
-    user.select_previous_occurrence(text)
-    sleep(100ms)
-    code.toggle_comment()
-comment last clip:
-    user.select_previous_occurrence(clip.text())
-    sleep(100ms)
-    code.toggle_comment()
-comment next <user.text> [over]:
-    user.select_next_occurrence(text)
-    sleep(100ms)
-    code.toggle_comment()
-comment next clip:
-    user.select_next_occurrence(clip.text())
-    sleep(100ms)
-    code.toggle_comment()
-go last <user.text> [over]:
-    user.select_previous_occurrence(text)
-    sleep(100ms)
-    edit.right()
-go last clip:
-    user.select_previous_occurrence(clip.text())
-    sleep(100ms)
-    edit.right()
-go next <user.text> [over]:
-    user.select_next_occurrence(text)
-    edit.right()
-go next clip:
-    user.select_next_occurrence(clip.text())
-    edit.right()
-paste last <user.text> [over]:
-    user.select_previous_occurrence(text)
-    sleep(100ms)
-    edit.right()
-    edit.paste()
-paste next <user.text> [over]:
-    user.select_next_occurrence(text)
-    sleep(100ms)
-    edit.right()
-    edit.paste()
-replace last <user.text> [over]:
-    user.select_previous_occurrence(text)
-    sleep(100ms)
-    edit.paste()
-replace next <user.text> [over]:
-    user.select_next_occurrence(text)
-    sleep(100ms)
-    edit.paste()
-select last <user.text> [over]: user.select_previous_occurrence(text)
-select next <user.text> [over]: user.select_next_occurrence(text)
-select last clip: user.select_previous_occurrence(clip.text())
-select next clip: user.select_next_occurrence(clip.text())
+    key(escape)
+
+replace confirm:            user.find_replace_confirm()
+replace eve confirm:        user.find_replace_everywhere_confirm()
+replace [eve] confirm all:  user.find_replace_confirm_all()
+
+scout file for clip:        user.find_file(clip.text())
+scout (file|files|filed) [<user.text>]$:
+    user.find_file(text or "")

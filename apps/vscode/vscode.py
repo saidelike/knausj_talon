@@ -3,28 +3,7 @@ from talon import Context, Module, actions, app
 is_mac = app.platform == "mac"
 
 ctx = Context()
-mac_ctx = Context()
 mod = Module()
-mod.apps.vscode = """
-os: mac
-and app.bundle: com.microsoft.VSCode
-os: mac
-and app.bundle: com.microsoft.VSCodeInsiders
-os: mac
-and app.bundle: com.visualstudio.code.oss
-"""
-mod.apps.vscode = """
-os: linux
-and app.name: Code
-os: linux
-and app.name: code-oss
-os: linux
-and app.name: code-insiders
-os: linux
-and app.name: VSCodium
-os: linux
-and app.name: Codium
-"""
 mod.apps.vscode = """
 os: windows
 and app.name: Visual Studio Code
@@ -47,10 +26,6 @@ and app.exe: azuredatastudio.exe
 """
 
 ctx.matches = r"""
-app: vscode
-"""
-mac_ctx.matches = r"""
-os: mac
 app: vscode
 """
 
@@ -157,12 +132,6 @@ class Actions:
     def command_palette():
         """Show command palette"""
         actions.key("ctrl-shift-p")
-
-
-@mac_ctx.action_class("user")
-class MacUserActions:
-    def command_palette():
-        actions.key("cmd-shift-p")
 
 
 @ctx.action_class("user")
@@ -290,7 +259,6 @@ class UserActions:
         actions.user.vscode("editor.action.previousMatchFindAction")
 
     def find_everywhere(text: str):
-        """Triggers find across project"""
         if is_mac:
             actions.key("cmd-shift-f")
         else:
@@ -298,6 +266,24 @@ class UserActions:
 
         if text:
             actions.insert(text)
+
+    def find_everywhere_next():
+        actions.user.vscode("search.action.focusNextSearchResult")
+
+    def find_everywhere_previous():
+        actions.user.vscode("search.action.focusPreviousSearchResult")
+
+    def find_reference_previous():
+        actions.user.vscode("references-view.prev")
+
+    def find_reference_next():
+        actions.user.vscode("references-view.next")
+
+    def find_definition_previous():
+        actions.user.vscode("goToPreviousReference")
+
+    def find_definition_next():
+        actions.user.vscode("goToNextReference")
 
     def find_toggle_match_by_case():
         """Toggles find match by case sensitivity"""
@@ -337,6 +323,7 @@ class UserActions:
         else:
             actions.key("ctrl-shift-h")
 
+        actions.key("tab")
         if text:
             actions.insert(text)
 
@@ -366,3 +353,6 @@ class UserActions:
 
     def insert_snippet(body: str):
         actions.user.run_rpc_command("editor.action.insertSnippet", {"snippet": body})
+
+    def line_middle():
+        actions.user.vscode("andreas.lineMiddle")

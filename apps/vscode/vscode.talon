@@ -66,14 +66,6 @@ wrap switch: user.vscode("editor.action.toggleWordWrap")
 zen switch: user.vscode("workbench.action.toggleZenMode")
 
 # File Commands
-scout file [<user.text>]:
-    user.vscode("workbench.action.quickOpen")
-    sleep(50ms)
-    insert(text or "")
-scout file (pace | paste):
-    user.vscode("workbench.action.quickOpen")
-    sleep(50ms)
-    edit.paste()
 file copy name: user.vscode("fileutils.copyFileName")
 file copy path: user.vscode("copyFilePath")
 file copy local [path]: user.vscode("copyRelativeFilePath")

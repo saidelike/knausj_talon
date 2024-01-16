@@ -93,6 +93,16 @@ class Actions:
         for _ in range(n):
             actions.edit.word_right()
 
+    def select_word_left():
+        """Select word to the left"""
+        actions.edit.word_left()
+        actions.edit.extend_word_right()
+
+    def select_word_right():
+        """Select word to the right"""
+        actions.edit.word_right()
+        actions.edit.extend_word_left()
+
     def cut_word():
         """Cut word under cursor"""
         actions.edit.select_word()
@@ -143,10 +153,68 @@ class Actions:
         actions.edit.select_all()
         actions.edit.paste()
 
+    def file_post():
+        """Simulate the 'post file' cursorless command"""
+        actions.key("ctrl-end")
+
     def delete_all():
         """Delete all text in the current document"""
         actions.edit.select_all()
         actions.edit.delete()
+
+    def delete_word_left():
+        """Delete word to the left"""
+        actions.user.select_word_left()
+        actions.sleep("50ms")
+        actions.edit.delete()
+
+    def delete_word_right():
+        """Delete word to the right"""
+        actions.user.select_word_right()
+        actions.sleep("50ms")
+        actions.edit.delete()
+
+    # XXX this could be improved to delete the word on the left or right
+    # depending if the cursor is close to a special character and a word is on the other side
+    def delete_selection_or_word():
+        """Delete selection or word under cursor (simulates 'chuck this')"""
+        text = actions.edit.selected_text()
+        if len(text) > 0:
+            actions.edit.delete()
+        else:
+            actions.user.delete_word_right()
+
+    def copy_selection_or_word():
+        """Copy selection or word under cursor (simulates 'copy this')"""
+        text = actions.edit.selected_text()
+        if len(text) > 0:
+            actions.edit.copy()
+        else:
+            actions.user.copy_word()
+
+    def cut_selection_or_word():
+        """Cut selection or word under cursor (simulates 'cut this')"""
+        text = actions.edit.selected_text()
+        if len(text) > 0:
+            actions.edit.delete()
+        else:
+            actions.user.cut_word()
+
+    def paste_to_selection_or_word():
+        """Paste from clipboard to selection or word under cursor (simulates 'paste to this')"""
+        text = actions.edit.selected_text()
+        if len(text) > 0:
+            actions.edit.paste()
+        else:
+            actions.user.paste_word()
+
+    def line_middle():
+        """Move cursor to middle of line"""
+        actions.edit.select_line()
+        text = actions.edit.selected_text().strip()
+        actions.edit.right()
+        for _ in range(round(len(text) / 2)):
+            actions.edit.left()
 
     def cut_line():
         """Cut current line"""
@@ -162,6 +230,11 @@ class Actions:
         """Paste to current line"""
         actions.edit.select_line()
         actions.edit.paste()
+
+    def line_insert_down_twice():
+        """Insert two lines below cursor"""
+        actions.edit.line_insert_down()
+        actions.edit.line_insert_down()
 
     # ----- Start / End of line -----
     def select_line_start():

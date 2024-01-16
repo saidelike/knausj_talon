@@ -60,9 +60,3 @@ class Actions:
     #     pass
     # def delete_word():
     #     pass
-
-    # TODO: not sure how to implement these without overwriting clipboard
-    # def delete_word_left():
-    #     actions.user.cut_word_left()
-    # def delete_word_right():
-    #     actions.user.cut_word_right()
