@@ -162,6 +162,7 @@ punctuation_words = {
     "ampersand": "&",
     # Currencies
     "dollar sign": "$",
+    "euro sign": "€",
     "pound sign": "£",
     "hyphen": "-",
     "L paren": "(",
@@ -260,7 +261,7 @@ alternate_keys = {
 # taken from https://github.com/pokey/pokey_talon/blob/b1718056bd85da95f7778a7ef2340d205e320efb/core/keys/keys.py#L230
 advanced_keys = {
     "clap": "enter",
-    "drill": "delete",
+    # "drill": "delete",
     "scratch": "backspace",
     "scrape": "escape",
     "void": "space",
