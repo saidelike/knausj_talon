@@ -40,7 +40,13 @@ chuck head: user.delete_line_start()
 chuck tail: user.delete_line_end()
 
 # Paragraph
-# XXX
+pre block: edit.paragraph_start()
+post block: edit.paragraph_end()
+take block: edit.select_paragraph()
+cut block: user.cut_paragraph()
+copy block: user.copy_paragraph()
+(pace | paste) to block: user.paste_paragraph()
+chuck block: edit.delete_paragraph()
 
 # File / document
 pre file: edit.file_start()
@@ -60,9 +66,17 @@ chuck tail file:
     edit.delete()
 
 # Reformat
-# XXX
+# TODO: need to import Andreas' core/text/ and formatters code
 
 # Homophones
+# TODO: need to import Andreas' core/homophones/ code
 
 # Wrappers
-# XXX
+{user.delimiter_pair_wrap} wrap this:
+    user.delimiters_pair_wrap_selection(delimiter_pair_wrap)
+{user.delimiter_pair_wrap} wrap token:
+    edit.select_word()
+    user.delimiters_pair_wrap_selection(delimiter_pair_wrap)
+{user.delimiter_pair_wrap} wrap line:
+    edit.select_line()
+    user.delimiters_pair_wrap_selection(delimiter_pair_wrap)
