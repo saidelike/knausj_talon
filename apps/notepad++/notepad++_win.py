@@ -47,10 +47,10 @@ class EditActions:
         actions.key("ctrl-shift-down")
 
     def indent_more():
-        actions.key("tab")
+        actions.key("home tab")
 
     def indent_less():
-        actions.key("shift-tab")
+        actions.key("home shift-tab")
 
     def jump_line(n: int):
         actions.key("ctrl-g")
