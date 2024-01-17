@@ -54,13 +54,26 @@ drill: user.delete_right()
 
 # ----- Cut, copy, paste -----
 (pace | paste) it: edit.paste()
+(pace | paste) all: user.paste_all()
 paste special: edit.paste_match_style()
 
 remove:                     user.delete_word_left()
 wipe:                       user.delete_word_right()
 
 # ----- Misc -----
+drag up:                    edit.line_swap_up()
+drag down:                  edit.line_swap_down()
 disk: edit.save()
+
+# ----- Text insertions -----
+make to do:                 "TODO: "
+bullet:                     "* "
+task:                       "- [ ] "
+spam:                       ", "
+stacker:                    ": "
+period:                     ". "
+dasher:                     " - "
+arrow:                      " => "
 
 # Insert padding with optional symbols
 # I am removing the "pad" word as sometimes saying "period" with conformer D triggers "pad"
