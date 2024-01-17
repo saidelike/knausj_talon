@@ -4,9 +4,9 @@ triple quote: "'''"
 (triple grave | triple back tick | gravy): insert("```")
 (dot dot | dotdot): ".."
 ellipsis: "..."
-(comma and | spamma): ", "
-arrow: "->"
-dub arrow: "=>"
+#(comma and | spamma | spam): ", "
+# arrow: "->"
+# dub arrow: "=>"
 empty dub string: user.insert_between('"', '"')
 empty escaped (dub string | dub quotes): user.insert_between('\\"', '\\"')
 empty string: user.insert_between("'", "'")
@@ -40,5 +40,45 @@ quote that:
     text = edit.selected_text()
     user.paste('"{text}"')
 (grave | back tick) that:
+    text = edit.selected_text()
+    user.paste("`{text}`")
+
+# symbols to imitate Cursorless
+empty box: "[]"
+empty curly: "{}"
+empty diamond: "<>"
+empty quad: '""'
+empty round: "()"
+empty skis: "``"
+empty twin: "''"
+
+# this also works but we instead use Andreas' method in delimiters.py
+# box: user.insert_between('[', ']')
+# curly: user.insert_between('{', '}')
+# diamond: user.insert_between('<', '>')
+# quad: user.insert_between('"', '"')
+# round: user.insert_between('(', ')')
+# skis: user.insert_between('`', '`')
+# twin: user.insert_between("'", "'")
+
+box this:
+    text = edit.selected_text()
+    user.paste("[{text}]")
+curly this:
+    text = edit.selected_text()
+    user.paste("{{{text}}}")
+diamond this:
+    text = edit.selected_text()
+    user.paste("<{text}>")
+quad this:
+    text = edit.selected_text()
+    user.paste('"{text}"')
+round this:
+    text = edit.selected_text()
+    user.paste("({text})")
+skis this:
+    text = edit.selected_text()
+    user.paste("'{text}'")
+twin this:
     text = edit.selected_text()
     user.paste("`{text}`")
