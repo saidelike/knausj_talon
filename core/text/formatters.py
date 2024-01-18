@@ -172,10 +172,10 @@ formatters_dict = {
 code_formatter_names = {
     "all cap": "ALL_CAPS",
     "upper": "ALL_CAPS",  # easier to say than "all cap"?
-    "all down": "ALL_LOWERCASE",
+    "lower": "ALL_LOWERCASE",
     "camel": "PRIVATE_CAMEL_CASE",
     "dotted": "DOT_SEPARATED",
-    "dub string": "DOUBLE_QUOTED_STRING",
+    # "dub string": "DOUBLE_QUOTED_STRING",
     "dunder": "DOUBLE_UNDERSCORE",
     "hammer": "PUBLIC_CAMEL_CASE",
     "kebab": "DASH_SEPARATED",
@@ -184,7 +184,8 @@ code_formatter_names = {
     "slasher": "SLASH_SEPARATED",
     "smash": "NO_SPACES",
     "snake": "SNAKE_CASE",
-    "string": "SINGLE_QUOTED_STRING",
+    # "string": "SINGLE_QUOTED_STRING",
+    "string": "DOUBLE_UNDERSCORE",
 }
 prose_formatter_names = {
     "say": "NOOP",
