@@ -1,4 +1,5 @@
 tag: user.code_comment_line
+and not tag: user.cursorless
 -
 comment: user.code_comment_line_prefix()
 comment line:
