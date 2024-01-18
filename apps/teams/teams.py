@@ -9,4 +9,6 @@ os: linux
 and app.name: /Teams/
 os: windows
 and app.exe: ms-teams.exe
+os: windows
+and app.exe: Teams.exe
 """
