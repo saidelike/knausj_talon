@@ -223,11 +223,11 @@ _snap_positions = {
     # .--.--.--.
     # |  |  |  |
     # '--'--'--'
-    "center third": RelativeScreenPos(1 / 3, 0, 2 / 3, 1),
-    "left third": RelativeScreenPos(0, 0, 1 / 3, 1),
-    "right third": RelativeScreenPos(2 / 3, 0, 1, 1),
-    "left two thirds": RelativeScreenPos(0, 0, 2 / 3, 1),
-    "right two thirds": RelativeScreenPos(1 / 3, 0, 1, 1),
+    # "center third": RelativeScreenPos(1 / 3, 0, 2 / 3, 1),
+    # "left third": RelativeScreenPos(0, 0, 1 / 3, 1),
+    # "right third": RelativeScreenPos(2 / 3, 0, 1, 1),
+    # "left two thirds": RelativeScreenPos(0, 0, 2 / 3, 1),
+    # "right two thirds": RelativeScreenPos(1 / 3, 0, 1, 1),
     # Alternate (simpler) spoken forms for thirds
     "center small": RelativeScreenPos(1 / 3, 0, 2 / 3, 1),
     "left small": RelativeScreenPos(0, 0, 1 / 3, 1),
@@ -246,16 +246,16 @@ _snap_positions = {
     # .--.--.--.
     # |--|--|--|
     # '--'--'--'
-    "top left third": RelativeScreenPos(0, 0, 1 / 3, 0.5),
-    "top right third": RelativeScreenPos(2 / 3, 0, 1, 0.5),
-    "top left two thirds": RelativeScreenPos(0, 0, 2 / 3, 0.5),
-    "top right two thirds": RelativeScreenPos(1 / 3, 0, 1, 0.5),
-    "top center third": RelativeScreenPos(1 / 3, 0, 2 / 3, 0.5),
-    "bottom left third": RelativeScreenPos(0, 0.5, 1 / 3, 1),
-    "bottom right third": RelativeScreenPos(2 / 3, 0.5, 1, 1),
-    "bottom left two thirds": RelativeScreenPos(0, 0.5, 2 / 3, 1),
-    "bottom right two thirds": RelativeScreenPos(1 / 3, 0.5, 1, 1),
-    "bottom center third": RelativeScreenPos(1 / 3, 0.5, 2 / 3, 1),
+    # "top left third": RelativeScreenPos(0, 0, 1 / 3, 0.5),
+    # "top right third": RelativeScreenPos(2 / 3, 0, 1, 0.5),
+    # "top left two thirds": RelativeScreenPos(0, 0, 2 / 3, 0.5),
+    # "top right two thirds": RelativeScreenPos(1 / 3, 0, 1, 0.5),
+    # "top center third": RelativeScreenPos(1 / 3, 0, 2 / 3, 0.5),
+    # "bottom left third": RelativeScreenPos(0, 0.5, 1 / 3, 1),
+    # "bottom right third": RelativeScreenPos(2 / 3, 0.5, 1, 1),
+    # "bottom left two thirds": RelativeScreenPos(0, 0.5, 2 / 3, 1),
+    # "bottom right two thirds": RelativeScreenPos(1 / 3, 0.5, 1, 1),
+    # "bottom center third": RelativeScreenPos(1 / 3, 0.5, 2 / 3, 1),
     # Alternate (simpler) spoken forms for sixths
     "top left small": RelativeScreenPos(0, 0, 1 / 3, 0.5),
     "top right small": RelativeScreenPos(2 / 3, 0, 1, 0.5),
