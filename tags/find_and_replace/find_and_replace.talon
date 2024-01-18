@@ -1,19 +1,19 @@
 tag: user.find_and_replace
 -
 
-scout for clip:             edit.find(clip.text())
+scout (for clip|paste|pace):             edit.find(clip.text())
 scout [<user.text>]$:       edit.find(text or "")
 scout last:                 edit.find_previous()
 scout next:                 edit.find_next()
 
-scout eve for clip:         user.find_everywhere(clip.text())
+scout eve (for clip|paste|pace):         user.find_everywhere(clip.text())
 scout eve [<user.text>]$:   user.find_everywhere(text or "")
 scout eve last:             user.find_everywhere_previous()
 scout eve next:             user.find_everywhere_next()
 
-replace for clip:           user.find_replace(clip.text())
+replace (for clip|paste|pace):           user.find_replace(clip.text())
 replace [<user.text>]$:     user.find_replace(text or "")
-replace eve for clip:       user.replace_everywhere(clip.text())
+replace eve (for clip|paste|pace):       user.replace_everywhere(clip.text())
 replace eve [<user.text>]$: user.replace_everywhere(text or "")
 
 scout case:         user.find_toggle_match_by_case()
@@ -36,6 +36,6 @@ replace confirm:            user.find_replace_confirm()
 replace eve confirm:        user.find_replace_everywhere_confirm()
 replace [eve] confirm all:  user.find_replace_confirm_all()
 
-scout file for clip:        user.find_file(clip.text())
+scout file (for clip|paste|pace):        user.find_file(clip.text())
 scout (file|files|filed) [<user.text>]$:
     user.find_file(text or "")
