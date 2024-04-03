@@ -196,7 +196,7 @@ class Actions:
         """Cut selection or word under cursor (simulates 'cut this')"""
         text = actions.edit.selected_text()
         if len(text) > 0:
-            actions.edit.delete()
+            actions.edit.cut()
         else:
             actions.user.cut_word()
 
